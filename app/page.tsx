@@ -10,10 +10,15 @@ const apiUrl = "http://localhost:1337/api/titles";
 
 const CardBlogList = () => {
   const { data, error } = useSWR(apiUrl, fetcher);
-  console.log(data);
 
-  if (error) return <div>Gagal memuat data</div>;
-  if (!data) return <div>Mengambil data...</div>;
+  if (error)
+    return (
+      <div className="container mx-auto px-4 max-w-5xl">Gagal memuat data</div>
+    );
+  if (!data)
+    return (
+      <div className="container mx-auto px-4 max-w-5xl">Mengambil data...</div>
+    );
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[30px]">
@@ -24,7 +29,7 @@ const CardBlogList = () => {
           title={el.attributes.title}
           description={el.attributes.description}
           date={showFormattedDate(el.attributes.publishedAt)}
-          key={el.attributes.id}
+          key={el.id}
         />
       ))}
     </div>
