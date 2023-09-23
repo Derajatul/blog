@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Patrick_Hand } from "next/font/google";
 import Nav from "../components/ui/Nav";
 import { ThemeProvider } from "../components/theme-provider";
+import Footer from "@/components/ui/footer";
 
 const patrickHand = Patrick_Hand({ weight: "400", subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         >
           <Nav />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
