@@ -11,12 +11,13 @@ import {
 import Link from "next/link";
 
 type CardBlogProps = {
-  imgUrl: string;
+  imgUrl?: string;
   title: string;
   description: string;
   date: string;
-  id: number;
   category: string;
+  slug?:string;
+  id:number;
 };
 
 const CardBlog = ({
@@ -24,14 +25,16 @@ const CardBlog = ({
   title,
   description,
   date,
+  slug,
   id,
+  
   category,
 }: CardBlogProps) => {
   return (
-    <Link href="example.com">
+    <Link href={`/${id}`}>
       <Card>
         <CardHeader>
-          <figure className="w-full max-h-[213px] overflow-hidden rounded-lg mb-[21px]">
+          {/* <figure className="w-full max-h-[213px] overflow-hidden rounded-lg mb-[21px]">
             <Image
               src={imgUrl}
               alt="placeholder"
@@ -39,7 +42,7 @@ const CardBlog = ({
               height={500}
               className="bg-cover "
             />
-          </figure>
+          </figure> */}
           <CardDescription className="flex gap-4">
             <span>{category}</span>
             <span>|</span>
